@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bg8tnv3ss8u8p"]
+
+[ext_resource type="Script" uid="uid://cxkwawa7iy408" path="res://Скрипты/curtains.gd" id="1_7yhfh"]
+[ext_resource type="Texture2D" uid="uid://b3oosx3xj4r42" path="res://Текстуры/curtains.png" id="1_i1gv7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vnxrx"]
+blend_mode = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yhfh"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chpm7"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ail6l"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ilni"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu7pb"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6lq8"]
+atlas = ExtResource("1_i1gv7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yhfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chpm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ail6l")
+}],
+"loop": 0,
+"name": &"Close",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ilni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu7pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6lq8")
+}],
+"loop": 0,
+"name": &"Open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(65, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(65, 36)
+
+[node name="Curtains" type="CharacterBody2D" unique_id=214788006]
+script = ExtResource("1_7yhfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=837592843]
+material = SubResource("CanvasItemMaterial_vnxrx")
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Close"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1148400473]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1434096418]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=160027980]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_yf5fn")

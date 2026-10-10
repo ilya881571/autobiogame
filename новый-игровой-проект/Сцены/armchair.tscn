@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bokpfd21dflhr"]
+
+[ext_resource type="Texture2D" uid="uid://bu76f0uas7r3a" path="res://Текстуры/armchair.png" id="1_6ul0b"]
+[ext_resource type="Script" uid="uid://deg6hyp1jr0ai" path="res://Скрипты/armchair.gd" id="1_q8igk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ul0b"]
+size = Vector2(16, 48)
+
+[node name="armchair" type="StaticBody2D" unique_id=748537060]
+script = ExtResource("1_q8igk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1955674921]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=93434189]
+texture = ExtResource("1_6ul0b")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=923686899]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1704252973]
+shape = SubResource("RectangleShape2D_6ul0b")

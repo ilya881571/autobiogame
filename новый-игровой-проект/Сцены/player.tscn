@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cemmsv4l33ds8"]
+
+[ext_resource type="Texture2D" uid="uid://bx40bofn7yy27" path="res://icon.svg" id="1_8r40s"]
+[ext_resource type="Script" uid="uid://bsfxcyci3otad" path="res://Скрипты/player.gd" id="1_x2fpf"]
+[ext_resource type="Texture2D" uid="uid://cq8xembep6dgq" path="res://Текстуры/Ebutton.png" id="3_nlsae"]
+[ext_resource type="Texture2D" uid="uid://i3lumy2uof4o" path="res://Текстуры/Ebutton_pressed.png" id="4_b16gm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(12.5, 21.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 13.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1666127372]
+motion_mode = 1
+script = ExtResource("1_x2fpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567129189]
+visible = false
+position = Vector2(4.75, -8.25)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1520880264]
+position = Vector2(4.7500005, -8.250002)
+scale = Vector2(0.09765626, 0.16796875)
+texture = ExtResource("1_8r40s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1845430834]
+position = Vector2(5, -8)
+zoom = Vector2(5, 5)
+
+[node name="InteractionRadius" type="Area2D" parent="." unique_id=305141057]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRadius" unique_id=962107974]
+visible = false
+position = Vector2(5, -8)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=155145611]
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="CanvasLayer" unique_id=624155095]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+joystick_size = 200.0
+tip_size = 100.0
+action_left = &"move_left"
+action_right = &"move_right"
+action_up = &"move_up"
+action_down = &"move_down"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=288558339]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Ebutton" type="TextureButton" parent="CanvasLayer/MarginContainer" unique_id=1676537453]
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+texture_normal = ExtResource("3_nlsae")
+texture_pressed = ExtResource("4_b16gm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/Ebutton" to="." method="_on_ebutton_pressed"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cji6los5mmm0"]
+
+[ext_resource type="Texture2D" uid="uid://d1elv5bm6sgl5" path="res://Текстуры/Sofa.png" id="1_5taru"]
+[ext_resource type="Script" uid="uid://ddf311a4t14p3" path="res://Скрипты/sofa.gd" id="1_73g2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(32, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5taru"]
+size = Vector2(32, 40)
+
+[node name="Sofa" type="StaticBody2D" unique_id=1782816369]
+script = ExtResource("1_73g2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2124790471]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1382833917]
+texture = ExtResource("1_5taru")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1374341519]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1541399578]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5taru")

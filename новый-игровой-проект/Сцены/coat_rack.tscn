@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://byfgacxw0qj5g"]
+
+[ext_resource type="Texture2D" uid="uid://d6pk8vruursw" path="res://Текстуры/coat_rack.png" id="1_3gn8e"]
+[ext_resource type="Script" uid="uid://ck3abrxn4b278" path="res://Скрипты/coat_rack.gd" id="1_yp2ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(15, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp2ix"]
+size = Vector2(15, 48)
+
+[node name="CoatRack" type="StaticBody2D" unique_id=2045867437]
+script = ExtResource("1_yp2ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=233725268]
+texture = ExtResource("1_3gn8e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715895568]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1492514984]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1478439140]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yp2ix")
